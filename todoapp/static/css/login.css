@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+body {
+    background-color: #4682b4;
+}
+
+h1 {
+    text-align: center;
+    font-size: 75px;
+    margin-bottom: 50px;
+    }
+
+.loginform {
+    width: 450px;
+    height: 450px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: black 0px 10px 10px 0px;
+    margin: auto;
+}
+button {
+    font-size: 30px;
+    background-color: #87ceeb;
+    margin: 180px;
+}

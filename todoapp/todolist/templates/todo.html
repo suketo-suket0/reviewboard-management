@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/todo.css' %}">
+        <title>Think ToDo</title>
+    </head>
+    <body>
+        <div class="logout">
+            <a href="{% url 'accounts:logout' %}">
+                <button>logout</button>
+            </a>
+        </div>
+        <div class="list">
+            <h1>Think ToDo</h1>
+            <div class="listbody">
+                <ul>
+                    {%for task in todo_items %}
+                    <li>
+                        {{task.content}}
+                        <form class="delete" action="/todoapp/delete/{{task.id}}" method="POST">{% csrf_token %}
+                            <button type="submit" value="delete">Complet</button>
+                        </form>
+                    {% endfor %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <form class="add" action="/todoapp/todo_post/" method="POST">{% csrf_token %}
+            <input type="text" name="content">
+            <button type="submit" value="add">Add</button>
+        </form>
+    </body>
+</html>
